@@ -87,8 +87,6 @@ def getAllBlogPic(member,listNewestDate):
 
     return allPic
 
-
-
 def writeMemberJSON(member):
 
     fileName = "./memberdata/" + member + ".json"
@@ -103,8 +101,6 @@ def writeAllMemberJSON():
     for i in keyakizaka:
         if i['gen']==2.5:
             writeMemberJSON(i['name'])
-
-
 
 def updateMemberJSON(member):
     fileName = "./memberdata/" + member + ".json"
@@ -125,8 +121,6 @@ def updateAllMemberJSON():
     for i in keyakizaka:
         updateMemberJSON(i['name'])
 
-
-
 def createMemberJSON():
 
     for i in keyakizaka:
@@ -136,26 +130,4 @@ def createMemberJSON():
             json.dump("", file)
 
 
-def countBlog(member):
-    fileName = "./memberdata/" + member + ".json"
 
-    with open(fileName, "r+", encoding='utf-8') as file:   
-        data = json.loads(file.read())  
-
-    return len(data)
-
-
-
-
-#writeAllMemberJSON()
-#updateAllMemberJSON()
-
-
-#updateMemberJSON('増本綺良')
-
-
-
-
-# writeMemberJSON('上村莉菜')
-
-writeAllMemberJSON()
