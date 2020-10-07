@@ -1,0 +1,206 @@
+.wrapper {
+    margin: 0 auto;
+    /* Added */
+    float: none;
+    /* Added */
+    margin-bottom: 10px;
+    /* Added */
+}
+
+.blogPreview {
+    border: 0px;
+    position: relative;
+    width: 100%;
+}
+
+.navbar {
+    margin-bottom: 20px;
+    box-shadow: none;
+}
+
+.hahhah {
+    padding: 20px;
+    /* border-radius: 5px; */
+}
+
+.card-img-top {
+    object-fit: cover;
+    object-position: 50% 50%;
+    display: block;
+    border-radius: 0px;
+}
+
+.card-img-top img {
+    margin: 5px;
+}
+
+.card {
+    border: 0px;
+    box-shadow: none;
+}
+
+
+/* .img-hover-zoom {
+    /* [1.1] Set it as per your need */
+
+
+/*overflow: hidden; */
+
+
+/* [1.2] Hide the overflowing of child elements */
+
+
+/* [2] Transition property for smooth transformation of images */
+
+.img-hover-zoom img {
+    transition: transform .6s ease;
+}
+
+
+/* [3] Finally, transforming the image when container gets hovered */
+
+.img-hover-zoom:hover img {
+    transform: scale(1.2);
+}
+
+*/ .row {
+    margin: 0px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #ffffffbe;
+}
+
+.blogPreview:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: rgb(92, 92, 92);
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 10px;
+}
+
+.title {
+    font-family: 'Microsoft YaHei';
+    font-size: 20px;
+    line-height: 20px;
+}
+
+select,
+option,
+.modal-title {
+    font-family: 'Microsoft YaHei';
+    color: rgb(92, 92, 92);
+}
+
+.modal-body .date {
+    font-size: 15px;
+    color: rgb(92, 92, 92);
+}
+
+.detailImg {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.modal-backdrop {
+    background-color: rgb(209, 209, 209);
+}
+
+.pagination>li>a {
+    background-color: rgba(255, 255, 255, 0.205);
+    color: #5dbb53;
+    border: 0px;
+}
+
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
+    color: #5dbb53;
+    background-color: rgba(255, 255, 255, 0.514);
+    border: 0px;
+    border-color: transparent;
+}
+
+.pagination>.active>a {
+    color: white;
+    background-color: #5dbb53;
+    border: solid 1px #5dbb53;
+}
+
+.pagination>.active>a:hover {
+    background-color: #5dbb53;
+    border: solid 1px #5dbb53;
+}
+
+.pagination>li.active>a {
+    background-color: #5dbb53 !important;
+    border: solid 1px #5dbb53 !important;
+}
+
+.form-control {
+    background-color: transparent;
+    border: 0px;
+    width: auto;
+}
+
+.form-control:focus {
+    border: 0px;
+    background-color: transparent;
+    box-shadow: 0 0 0 0.0rem rgba(0, 123, 255, .25)
+}
+
+a.selfa:link,
+a.selfa:visited,
+a.selfa:hover,
+a.selfa:active {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* Designing for scroll-bar */
+
+ ::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: #c7c7c7;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #23531f;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #5ea758;
+}

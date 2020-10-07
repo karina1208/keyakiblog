@@ -1,0 +1,68 @@
+{% extends 'layout.html' %} {% block head %}
+<title>Keyaki Blog</title>
+{% endblock %} {% block body %}
+<!-- index js  -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<script type=text/javascript src="{{url_for('static', filename='js/index.js') }}"></script>
+
+
+<div class="diagonal-box">
+    <div data-aos="fade-up" class="content">
+        <a class="selfa" href="/">
+            <h1>◢Keyaki Blog Archive</h1>
+        </a>
+    </div>
+</div>
+<div data-aos="fade-up" class="diagonal-box bg-two">
+    <div class="content">
+        <h2>Photo Archive</h2>
+        <select name="member" class="form-control" id="memberSelect" onchange="change(this.value)">
+          <option selected value="">Select member</option>
+          {% for name in range(nameList|length) %}
+          <option value="{{'memberBlog?member='+nameList[name]+'&page=1&sort=a'}}">{{nameList[name]}}</option>
+          {%endfor%}
+        </select>
+    </div>
+</div>
+
+<div class="diagonal-box bg-one">
+    <div data-aos="zoom-in-down" class="content">
+        <h2>Group Statistics</h2>
+        {% include 'allChart.html' %}
+        <!-- <code>absolute</code> -->
+    </div>
+</div>
+
+<div class="diagonal-box bg-two">
+    <div data-aos="zoom-in-down" class="content">
+        <h2>Member Statistics</h2>
+        <select name="member" class="form-control" id="memberStatSelect" onchange="change(this.value)">
+            <option selected value="">Select member</option>
+            {% for name in range(nameList|length) %}
+            <option value="{{'memberStat?member='+nameList[name]}}">{{nameList[name]}}</option>
+            {%endfor%}
+          </select>
+    </div>
+
+</div>
+
+
+
+<div class="clip-path">
+    <div class="content">
+    </div>
+</div>
+
+<script>
+    function change(link) {
+        changeUrl(link)
+
+    }
+
+    function changeUrl(link) {
+
+        console.log(link)
+        location.href = link;
+    }
+</script>
+{% endblock %}

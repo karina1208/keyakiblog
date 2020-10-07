@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<script type=text/javascript src="{{url_for('static', filename='js/index.js') }}"></script>
+
+<div class="diagonal-box">
+    <div data-aos="fade-up" class="content">
+        <a class="selfa" href="/">
+            <h1>◢Keyaki Blog Archive</h1>
+        </a>
+    </div>
+</div>
+<div data-aos="fade-up" class="diagonal-box bg-one hahaha">
+    <div class="content">
+
+        <div class="d-flex justify-content-start">
+            <select name="member" class="form-control" id="memberSelect" onchange="change(this.value)">
+            {% for name in range(nameList|length) %}
+            {% if(member==nameList[name]) %}
+            <option selected value="{{nameList[name]}}">{{nameList[name]}}</option>
+            {%else%}
+            <option value="{{'memberStat?member='+nameList[name]}}">{{nameList[name]}}</option>
+            {%endif%}
+            {%endfor%}
+            </select>
+
+        </div>
+
+        {% if member==None %}
+        <br />
+
+        <h3 style="text-align: center; color:rgb(92, 92, 92);">Page Not Found</h3>
+        {%else%} {% include 'memberChart.html' %} {%endif%}
+    </div>
+</div>
+
+<div class="clip-path clip-path2">
+    <div class="content">
+
+    </div>
+</div>
+
+<script>
+    function change(link) {
+        changeUrl(link)
+    }
+
+    function changeUrl(link) {
+
+        console.log(link)
+        location.href = link;
+    }
+</script>

@@ -1,0 +1,142 @@
+<br/>
+<div data-aos="zoom-in">
+    <h3 style="text-align: center;">Blog per year</h3>
+    <input id="blogYear" value="{{blogYear}}" type="hidden" />
+    <canvas id="blogYearChart"></canvas>
+</div>
+<br/>
+<div data-aos="zoom-in">
+    <h3 style="text-align: center;">Blog publishing time</h3>
+    <input id="blogTime" value="{{blogTime}}" type="hidden" />
+    <canvas id="blogTimeChart"></canvas>
+</div>
+
+<br/>
+<div data-aos="zoom-in">
+    <h3 style="text-align: center;">Blog contains image</h3>
+    <input id="blogPic" value="{{blogPic}}" type="hidden" />
+    <canvas id="blogPicChart"></canvas>
+</div>
+
+
+<script>
+    Chart.platform.disableCSSInjection = true;
+
+    let blogTime = JSON.parse(document.getElementById('blogTime').value)
+    let allTime = []
+    let allTimeCount = []
+
+    for (let time in blogTime) {
+        if (blogTime.hasOwnProperty(time)) {
+            allTime.push(time + ':00');
+        }
+    }
+
+    for (let time in blogTime) {
+        if (blogTime.hasOwnProperty(time)) {
+            allTimeCount.push(blogTime[time]);
+        }
+    }
+
+    var blogTimeCtx = document.getElementById('blogTimeChart').getContext('2d');
+    var blogTimeChart = new Chart(blogTimeCtx, {
+        type: 'line',
+        data: {
+            labels: allTime,
+            datasets: [{
+                label: '# of blog',
+                data: allTimeCount,
+                // backgroundColor: 'transparent',
+                borderColor: '#498f42',
+                borderWidth: 3,
+                fill: false,
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // -- blog per year -- //
+    let blogYear = JSON.parse(document.getElementById('blogYear').value)
+    let allYear = []
+    let allYearCount = []
+
+    for (let year in blogYear) {
+        if (blogYear.hasOwnProperty(year)) {
+            allYear.push(year);
+        }
+    }
+
+    for (let year in blogYear) {
+        if (blogYear.hasOwnProperty(year)) {
+            allYearCount.push(blogYear[year]);
+        }
+    }
+
+    console.log(allYearCount)
+
+    var blogYearCtx = document.getElementById('blogYearChart').getContext('2d');
+    var blogYearChart = new Chart(blogYearCtx, {
+        type: 'line',
+        data: {
+            labels: allYear,
+            datasets: [{
+                label: '# of blog',
+                data: allYearCount,
+                // backgroundColor: 'transparent',
+                borderColor: '#498f42',
+                borderWidth: 3,
+                fill: false,
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // -- count if blog contains image -- //
+    let blogPic = JSON.parse(document.getElementById('blogPic').value)
+    let isPic = []
+    let isPicCount = []
+
+    for (let option in blogPic) {
+        if (blogPic.hasOwnProperty(option)) {
+            isPic.push(option);
+        }
+    }
+
+    for (let option in blogPic) {
+        if (blogPic.hasOwnProperty(option)) {
+            isPicCount.push(blogPic[option]);
+        }
+    }
+
+    var blogPicCtx = document.getElementById('blogPicChart').getContext('2d');
+    var blogPicChart = new Chart(blogPicCtx, {
+        type: 'pie',
+        data: {
+            labels: isPic,
+            datasets: [{
+                label: 'Blog contains image',
+                data: isPicCount,
+                backgroundColor: ['#5ea758', '#bbbbbb'],
+                borderColor: '#498f42',
+                borderWidth: 0,
+                fill: false,
+            }]
+        }
+    });
+</script>

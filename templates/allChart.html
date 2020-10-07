@@ -1,0 +1,116 @@
+<br/>
+<div data-aos="zoom-in">
+    <h3 style="text-align: center;">Number of blogs</h3>
+    <input id="allBlogCount" value="{{allBlogCount}}" type="hidden" />
+    <canvas id="allBlogCountChart"></canvas>
+</div>
+<br/>
+<div data-aos="zoom-in">
+    <h3 style="text-align: center;">Number of image</h3>
+    <input id="totalImgNo" value="{{totalImgNo}}" type="hidden" />
+    <canvas id="totalImgNoChart"></canvas>
+</div>
+
+<script>
+    Chart.platform.disableCSSInjection = true;
+
+    let allBlogCount = JSON.parse(document.getElementById('allBlogCount').value)
+    console.log(allBlogCount)
+    let memberName = []
+    let allBlogCountNum = []
+    let genBackgroundColor = []
+    let genBorderColor = []
+
+    for (let i in allBlogCount) {
+
+        memberName.push(allBlogCount[i]['name']);
+        allBlogCountNum.push(allBlogCount[i]['count']);
+        if (allBlogCount[i]['gen'] == 1) {
+            genBackgroundColor.push('#5ea758')
+            genBorderColor.push('#498f42')
+        } else if (allBlogCount[i]['gen'] == 2) {
+            genBackgroundColor.push('#85c27f')
+            genBorderColor.push('#70b369')
+        } else if (allBlogCount[i]['gen'] == 2.5) {
+            genBackgroundColor.push('rgb(172, 212, 167)')
+            genBorderColor.push('rgb(150, 197, 143)')
+        }
+
+
+    }
+
+
+    var allBlogCountCtx = document.getElementById('allBlogCountChart').getContext('2d');
+    var allBlogCountChart = new Chart(allBlogCountCtx, {
+        type: 'bar',
+        data: {
+            labels: memberName,
+            datasets: [{
+                label: '# of blog',
+                data: allBlogCountNum,
+                backgroundColor: genBackgroundColor,
+                borderColor: genBorderColor,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+
+    // -- blogOverDay -- //
+    let totalImgNo = JSON.parse(document.getElementById('totalImgNo').value)
+    console.log(totalImgNo)
+    memberName = []
+    let totalImgNoNum = []
+    genBackgroundColor = []
+    genBorderColor = []
+
+    for (let i in totalImgNo) {
+
+        memberName.push(totalImgNo[i]['name']);
+        totalImgNoNum.push(totalImgNo[i]['count']);
+        if (totalImgNo[i]['gen'] == 1) {
+            genBackgroundColor.push('#5ea758')
+            genBorderColor.push('#498f42')
+        } else if (totalImgNo[i]['gen'] == 2) {
+            genBackgroundColor.push('#85c27f')
+            genBorderColor.push('#70b369')
+        } else if (totalImgNo[i]['gen'] == 2.5) {
+            genBackgroundColor.push('rgb(172, 212, 167)')
+            genBorderColor.push('rgb(150, 197, 143)')
+        }
+
+    }
+
+    var totalImgNoCtx = document.getElementById('totalImgNoChart').getContext('2d');
+    var totalImgNoChart = new Chart(totalImgNoCtx, {
+        type: 'bar',
+        data: {
+            labels: memberName,
+            datasets: [{
+                label: '# of image',
+                data: totalImgNoNum,
+                backgroundColor: genBackgroundColor,
+                borderColor: genBorderColor,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
