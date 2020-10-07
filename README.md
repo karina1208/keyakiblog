@@ -15,6 +15,7 @@ updateAllMemberJSON()    #update all member's JSON file
 ```
 
 ## Link
+https://keyakiblog.herokuapp.com
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
