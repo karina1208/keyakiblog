@@ -108,7 +108,7 @@ def updateMemberJSON(member):
     with open(fileName, "r+", encoding='utf-8') as file:   
         data = json.loads(file.read())  
 
-    print(data[0])
+    # print(data[0])
     tempList = getAllBlogPic(member,data[0]['date'])
         
     tempList.extend(data)
